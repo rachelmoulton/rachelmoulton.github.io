@@ -1,0 +1,158 @@
+/* Shared styles for every page. The look mirrors Rachel's printed resume:
+   serif type, ALL-CAPS section headings with a rule, dates on the right. */
+
+:root {
+  --ink: #1a1a1a;
+  --muted: #555;
+  --rule: #1a1a1a;
+  --accent: #1f3a5f;   /* navy, used for links and the nav */
+  --paper: #ffffff;
+  --page-bg: #f3f2ef;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: "Times New Roman", Times, Georgia, serif;
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+a { color: var(--accent); }
+
+/* ---------- Top navigation ---------- */
+.site-nav {
+  background: var(--paper);
+  border-bottom: 1px solid #ddd;
+}
+.site-nav ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0 16px;
+  max-width: 850px;
+  display: flex;
+  gap: 28px;
+}
+.site-nav a {
+  display: block;
+  padding: 14px 0;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+}
+.site-nav a:hover { color: var(--accent); }
+.site-nav a[aria-current="page"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- The "sheet of paper" ---------- */
+.page {
+  max-width: 850px;
+  margin: 32px auto;
+  padding: 48px 56px;
+  background: var(--paper);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------- Resume header ---------- */
+.resume-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--rule);
+}
+.resume-header h1 {
+  margin: 0 0 4px;
+  font-size: 26px;
+  letter-spacing: 0.02em;
+}
+.contact { margin: 0; padding: 0; list-style: none; font-weight: bold; font-size: 15px; }
+.contact a { color: var(--ink); }
+.headshot {
+  width: 120px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.headline { text-align: center; padding: 14px 0 12px; border-bottom: 2px solid var(--rule); }
+.headline h2 { margin: 0; font-size: 26px; }
+.headline p { margin: 2px 0 0; font-style: italic; }
+
+/* ---------- Sections ---------- */
+.resume-section { padding: 14px 0 10px; border-bottom: 2px solid var(--rule); }
+.resume-section > h2 {
+  margin: 0 0 8px;
+  font-size: 21px;
+  text-transform: uppercase;
+}
+
+.entry { margin: 0 0 14px 20px; }
+.entry-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+.entry-row .date { white-space: nowrap; }
+.org { font-weight: bold; text-transform: uppercase; }
+.role { font-style: italic; }
+.role strong { font-style: normal; }
+
+.entry ul, .resume-section > ul { margin: 4px 0 0; padding-left: 44px; }
+.entry li, .resume-section > ul li { margin-bottom: 2px; }
+
+.skills { margin: 6px 0 0 44px; }
+
+/* ---------- Actions under the resume ---------- */
+.resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.button {
+  display: inline-block;
+  padding: 10px 18px;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 15px;
+}
+.button.primary { background: var(--accent); color: #fff; }
+.button:hover { opacity: 0.85; }
+
+/* ---------- Placeholder pages ---------- */
+.coming-soon { color: var(--muted); }
+
+/* ---------- Phones ---------- */
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .page { margin: 0; padding: 24px 16px; box-shadow: none; }
+  .site-nav ul { gap: 18px; }
+  .resume-header { flex-direction: column-reverse; align-items: center; text-align: center; }
+  .headshot { width: 110px; height: 138px; }
+  .entry { margin-left: 0; }
+  .entry-row { flex-direction: column; gap: 0; }
+  .entry ul, .resume-section > ul { padding-left: 22px; }
+  .skills { margin-left: 0; }
+}
+
+/* ---------- Printing ---------- */
+@media print {
+  body { background: #fff; font-size: 12pt; }
+  .site-nav, .resume-actions { display: none; }
+  .page { margin: 0; padding: 0; box-shadow: none; max-width: none; }
+  a { color: var(--ink); text-decoration: none; }
+}

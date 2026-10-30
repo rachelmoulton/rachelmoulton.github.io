@@ -38,12 +38,12 @@ Maintainer notes (stripped from Claude's context):
 ```
 personal-site/
 ├── CLAUDE.md
-├── index.html          # Resume (home) — not built yet
-├── interactive.html    # 3D / interactive page — not built yet
-├── portfolio.html      # Portfolio tab — not built yet
-├── styles.css          # shared styles — not built yet
+├── index.html          # Resume (home) — built
+├── interactive.html    # 3D / interactive page — placeholder
+├── portfolio.html      # Portfolio tab — placeholder
+├── styles.css          # shared styles (resume look, phone + print rules)
 └── assets/
-    ├── headshot.png    # Rachel's headshot (needs resizing before launch)
+    ├── headshot.jpg    # web-sized headshot used by the site (headshot.png = original)
     ├── resume.pdf      # source of truth for resume content
     ├── portfolio/      # images/PDFs for portfolio entries
     └── 3d/             # .glb files exported from Blender
