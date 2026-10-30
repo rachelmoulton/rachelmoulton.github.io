@@ -2,7 +2,7 @@
 Maintainer notes (stripped from Claude's context):
 - Created 2026-10-30. Folder + assets only; no pages built yet.
 - headshot.png copied from a chat-pasted image (1091x1442, ~3.2 MB PNG) — not yet optimized.
-- resume.pdf copied from ~/Desktop/MBA/RachelMoulton_Resume_2026.pdf (the .docx source lives beside it).
+- resume.pdf was scrubbed from git history (it contained her phone number) before the repo went public.
 -->
 
 # Personal Site — Rachel Moulton
@@ -30,8 +30,12 @@ Maintainer notes (stripped from Claude's context):
 
 ## Hosting
 
-- Vercel, as a static site (no config file needed).
-- Deploying, logging in, or changing domains touches the public internet — **always confirm with Rachel first.**
+- GitHub Pages from the **public** repo `rachelmoulton/rachelmoulton.github.io` (branch `main`, root folder).
+  Live at https://rachelmoulton.github.io — every push to `main` republishes in about a minute.
+- Because the repo is public, every file AND its full git history is visible to anyone.
+  **Never commit anything private** (phone number, `.env` files, drafts). Removing a file later does not remove it from history.
+- Chosen over Vercel because Rachel's only Vercel login is shared with AI Foundry @ BYU, and she didn't want to pay for a second workspace.
+- Pushing, repo visibility, and domain changes touch the public internet — **always confirm with Rachel first.**
 
 ## Layout
 
@@ -44,7 +48,7 @@ personal-site/
 ├── styles.css          # shared styles (resume look, phone + print rules)
 └── assets/
     ├── headshot.jpg    # web-sized headshot used by the site (headshot.png = original)
-    ├── resume.pdf      # source of truth for resume content
+    ├── resume.pdf      # NOT present yet — add a clean export (no phone number), then unhide the Download button in index.html
     ├── portfolio/      # images/PDFs for portfolio entries
     └── 3d/             # .glb files exported from Blender
 ```
@@ -55,14 +59,14 @@ All pages share one top nav: **Resume · Interactive · Portfolio**.
 
 ### 1. Resume — `index.html` (home)
 
-One page whose layout mirrors her actual resume (assets/resume.pdf):
+One page whose layout mirrors her actual resume:
 - Name + contact block at top; headshot visible.
 - Centered headline "Project Management & Analytics", subtitle
   "Applied AI Architecture • Competitive Strategy • BYU MBA".
 - Ruled sections in this order: **Education, Experience, Volunteer, Personal.**
 - Section headings in ALL CAPS with a horizontal rule under them.
 - Each entry: employer/school | location on the left, dates right-aligned; role in italics; then bullets.
-- A "Download PDF" link to `assets/resume.pdf`.
+- A "Download PDF" link to `assets/resume.pdf` (currently commented out until a clean PDF exists).
 
 ### 2. Interactive — `interactive.html`
 
@@ -81,7 +85,7 @@ One page whose layout mirrors her actual resume (assets/resume.pdf):
 
 ## Always / never
 
-- **Always** treat `assets/resume.pdf` as the source of truth for resume content; keep site text in sync with it.
+- **Always** treat Rachel's Word resume (~/Desktop/MBA/RachelMoulton_Resume_2026.docx) as the source of truth for resume content; keep site text in sync with it.
   Never invent accomplishments, titles, or numbers.
 - **Never** publish Rachel's phone number on the site by default (public sites get scraped). Email + LinkedIn only, unless she says otherwise.
 - **Always** keep the design original — don't copy colors or layouts from other people's portfolio templates.
@@ -95,5 +99,5 @@ One page whose layout mirrors her actual resume (assets/resume.pdf):
 
 - Phone number on the site: yes or no? (Default: no.)
 - Which portfolio items are OK to make public?
-- Custom domain, or the default `*.vercel.app` URL?
+- Custom domain, or the default rachelmoulton.github.io address?
 - Color and font preferences?
